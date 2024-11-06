@@ -1,181 +1,192 @@
-package gui;
-import java.awt.EventQueue;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+package org.eclipse.wb.swing;
+
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JSlider;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.time.LocalTime;
+import javax.swing.ButtonGroup;
+import javax.swing.ComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.SwingConstants;
+import java.awt.Button;
 
-public class FormGUI extends JFrame {
+public class RegistrationForm extends JFrame {
 
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private JTextField textFieldFirstName;
-    private JTextField textFieldAge;
-    private JTextField textFieldEmail;
-    private JPasswordField passwordField;
-    private JTextField textFieldDOB;
-    private JTextField textFieldTime;
-    private JTextField textFieldURL;
-    private JComboBox<String> comboBoxCity;
-    private JTextArea textAreaFeedback;
-    private JComboBox<String> comboBoxSkill;
-    private JSlider volumeSlider;
-    private JButton btnSelectColor;
-    private JFileChooser fileChooser;
-    private JLabel lblSelectedFile;
-    private JColorChooser colorChooser;
+		private static final long serialVersionUID = 1L;
+		private static final ComboBoxModel Skillset = null;
+		private JPanel contentPane;
+		private JTextField textFieldFirstName;
+	    private JTextField textFieldAge;
+	    private JTextField textFieldEmail;
+	    private JPasswordField passwordField;
+	    private JTextField textFieldDOB;
+	    private JTextField textFieldTime;
+	    private JTextField textFieldUrl;
+	    private JComboBox<String> comboBoxSkill;
+	    private JSlider volumeSlider;
+	    private JButton btnSelectColor;
+	    private JColorChooser colorChooser;
+	    private JLabel lblSelectedFile;
+	    private JFileChooser fileChooser;
+	    private JTextArea textAreaFeedback;
+	    private JComboBox<String> comboBoxCity;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RegistrationForm frame = new RegistrationForm();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    FormGUI frame = new FormGUI();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    /**
-     * Create the frame.
-     */
-    public FormGUI() {
-        setTitle("User Registration Form");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 700, 800);
-        contentPane = new JPanel();
-        contentPane.setBackground(new Color(255, 239, 213));
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
+	/**
+	 * Create the frame.
+	 */
+	public RegistrationForm() {
+		setTitle("User Registration");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 700, 800);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 239, 213));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
         contentPane.setLayout(null);
-
-        // Labels and input fields
-        JLabel lblFirstName = new JLabel("First Name:");
-        lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblFirstName.setBounds(20, 20, 100, 30);
-        contentPane.add(lblFirstName);
+        
+        JLabel FirstName = new JLabel("First Name:");
+        FirstName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        FirstName.setBounds(20, 20, 100, 30);
+        contentPane.add(FirstName);
 
         textFieldFirstName = new JTextField();
         textFieldFirstName.setBounds(150, 20, 250, 30);
         contentPane.add(textFieldFirstName);
         textFieldFirstName.setColumns(10);
 
-        JLabel lblAge = new JLabel("Age:");
-        lblAge.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblAge.setBounds(20, 60, 100, 30);
-        contentPane.add(lblAge);
+        JLabel Age = new JLabel("Age:");
+        Age.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Age.setBounds(20, 60, 100, 30);
+        contentPane.add(Age);
 
         textFieldAge = new JTextField();
         textFieldAge.setBounds(150, 60, 250, 30);
         contentPane.add(textFieldAge);
         textFieldAge.setColumns(10);
-
-        JLabel lblEmail = new JLabel("Email:");
-        lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblEmail.setBounds(20, 100, 100, 30);
-        contentPane.add(lblEmail);
+        
+        JLabel Email = new JLabel("Email:");
+        Email.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Email.setBounds(20, 100, 100, 30);
+        contentPane.add(Email);
 
         textFieldEmail = new JTextField();
         textFieldEmail.setBounds(150, 100, 250, 30);
         contentPane.add(textFieldEmail);
         textFieldEmail.setColumns(10);
 
-        JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblPassword.setBounds(20, 140, 100, 30);
-        contentPane.add(lblPassword);
+        JLabel Password = new JLabel("Password:");
+        Password.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Password.setBounds(20, 140, 100, 30);
+        contentPane.add(Password);
 
         passwordField = new JPasswordField();
         passwordField.setBounds(150, 140, 250, 30);
         contentPane.add(passwordField);
-
-        JLabel lblDOB = new JLabel("DOB (dd-mm-yyyy):");
-        lblDOB.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblDOB.setBounds(20, 180, 150, 30);
-        contentPane.add(lblDOB);
+        
+        JLabel DOB = new JLabel("DOB:");
+        DOB.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        DOB.setBounds(20, 180, 132, 30);
+        contentPane.add(DOB);
 
         textFieldDOB = new JTextField();
-        textFieldDOB.setBounds(180, 180, 220, 30);
+        textFieldDOB.setBounds(150, 180, 250, 30);
         contentPane.add(textFieldDOB);
         textFieldDOB.setColumns(10);
 
-        JLabel lblTime = new JLabel("Time (hh:mm):");
-        lblTime.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblTime.setBounds(20, 220, 150, 30);
-        contentPane.add(lblTime);
+        JLabel Time = new JLabel("Time:");
+        Time.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Time.setBounds(20, 220, 150, 30);
+        contentPane.add(Time);
 
         textFieldTime = new JTextField();
-        textFieldTime.setBounds(180, 220, 220, 30);
+        textFieldTime.setBounds(150, 220, 250, 30);
         contentPane.add(textFieldTime);
         textFieldTime.setColumns(10);
-
-        JLabel lblURL = new JLabel("URL:");
-        lblURL.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblURL.setBounds(20, 260, 100, 30);
-        contentPane.add(lblURL);
-
-        textFieldURL = new JTextField();
-        textFieldURL.setBounds(150, 260, 250, 30);
-        contentPane.add(textFieldURL);
-        textFieldURL.setColumns(10);
-
-        JLabel lblSkills = new JLabel("Select your Skill:");
-        lblSkills.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblSkills.setBounds(20, 300, 150, 30);
-        contentPane.add(lblSkills);
+        
+        JLabel Url = new JLabel("URL:");
+        Url.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Url.setBounds(20, 260, 150, 30);
+        contentPane.add(Url);
+        
+        textFieldUrl = new JTextField();
+        textFieldUrl.setColumns(10);
+        textFieldUrl.setBounds(150, 260, 170, 30);
+        contentPane.add(textFieldUrl);
+        
+        JLabel Skills = new JLabel("Select your Skill:");
+        Skills.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Skills.setBounds(20, 300, 150, 30);
+        contentPane.add(Skills);
 
         String[] skills = { "Java", "Python", "MongoDB", "Node.js" };
         comboBoxSkill = new JComboBox<>(skills);
-        comboBoxSkill.setBounds(180, 300, 220, 30);
+        comboBoxSkill.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        comboBoxSkill.setSelectedIndex(0);
+        comboBoxSkill.setBounds(150, 300, 250, 30);
         contentPane.add(comboBoxSkill);
+        
+        JLabel Gender = new JLabel("Gender:");
+        Gender.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Gender.setBounds(20, 340, 100, 30);
+        contentPane.add(Gender);
 
-        JLabel lblGender = new JLabel("Gender:");
-        lblGender.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblGender.setBounds(20, 340, 100, 30);
-        contentPane.add(lblGender);
+        JRadioButton Male = new JRadioButton("Male");
+        Male.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Male.setBounds(150, 340, 78, 30);
+        contentPane.add(Male);
 
-        JRadioButton rdbtnMale = new JRadioButton("Male");
-        rdbtnMale.setBounds(150, 340, 70, 30);
-        contentPane.add(rdbtnMale);
+        JRadioButton Female = new JRadioButton("Female");
+        Female.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Female.setBounds(230, 340, 90, 30);
+        contentPane.add(Female);
 
-        JRadioButton rdbtnFemale = new JRadioButton("Female");
-        rdbtnFemale.setBounds(230, 340, 90, 30);
-        contentPane.add(rdbtnFemale);
-
-        JRadioButton rdbtnOther = new JRadioButton("Other");
-        rdbtnOther.setBounds(330, 340, 80, 30);
-        contentPane.add(rdbtnOther);
-
+        JRadioButton Other = new JRadioButton("Other");
+        Other.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        Other.setBounds(330, 340, 80, 30);
+        contentPane.add(Other);
+        
         ButtonGroup genderGroup = new ButtonGroup();
-        genderGroup.add(rdbtnMale);
-        genderGroup.add(rdbtnFemale);
-        genderGroup.add(rdbtnOther);
-
-        JLabel lblVolume = new JLabel("Select Volume:");
-        lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblVolume.setBounds(20, 380, 150, 30);
-        contentPane.add(lblVolume);
-
-        volumeSlider = new JSlider(0, 100);
-        volumeSlider.setBounds(180, 380, 220, 30);
-        contentPane.add(volumeSlider);
+        genderGroup.add(Male);
+        genderGroup.add(Female);
+        genderGroup.add(Other);
 
         JLabel lblColor = new JLabel("Select Color:");
         lblColor.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblColor.setBounds(20, 420, 150, 30);
+        lblColor.setBounds(20, 385, 150, 30);
         contentPane.add(lblColor);
 
         btnSelectColor = new JButton("Select Color");
-        btnSelectColor.setBounds(180, 420, 150, 30);
+        btnSelectColor.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnSelectColor.setBounds(150, 385, 150, 30);
         contentPane.add(btnSelectColor);
 
         colorChooser = new JColorChooser();
@@ -187,16 +198,13 @@ public class FormGUI extends JFrame {
 
         JLabel lblFile = new JLabel("Upload your file:");
         lblFile.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblFile.setBounds(20, 460, 150, 30);
+        lblFile.setBounds(20, 424, 150, 30);
         contentPane.add(lblFile);
 
         JButton btnChooseFile = new JButton("Choose File");
-        btnChooseFile.setBounds(180, 460, 150, 30);
+        btnChooseFile.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnChooseFile.setBounds(150, 424, 150, 30);
         contentPane.add(btnChooseFile);
-
-        lblSelectedFile = new JLabel("No file chosen");
-        lblSelectedFile.setBounds(350, 460, 250, 30);
-        contentPane.add(lblSelectedFile);
 
         fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("PDF Files", "pdf"));
@@ -204,35 +212,40 @@ public class FormGUI extends JFrame {
         btnChooseFile.addActionListener(e -> {
             int returnValue = fileChooser.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
-                lblSelectedFile.setText(fileChooser.getSelectedFile().getName());
+            	lblSelectedFile.setText(fileChooser.getSelectedFile().getName());
             }
         });
-
+        
         JLabel lblCity = new JLabel("Select your city:");
         lblCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblCity.setBounds(20, 500, 150, 30);
+        lblCity.setBounds(20, 471, 150, 30);
         contentPane.add(lblCity);
 
-        String[] cities = { "Select City", "New York", "Los Angeles", "Chicago", "Houston" };
+        String[] cities = { "Select City", "Bengaluru", "Pune", "Hyderabad", "Mumbai" };
         comboBoxCity = new JComboBox<>(cities);
-        comboBoxCity.setBounds(180, 500, 220, 30);
+        comboBoxCity.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        comboBoxCity.setBounds(150, 471, 220, 30);
         contentPane.add(comboBoxCity);
 
         JLabel lblFeedback = new JLabel("Write your feedback:");
         lblFeedback.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        lblFeedback.setBounds(20, 540, 180, 30);
+        lblFeedback.setBounds(20, 512, 180, 30);
         contentPane.add(lblFeedback);
 
         textAreaFeedback = new JTextArea();
-        textAreaFeedback.setBounds(20, 580, 600, 100);
+        textAreaFeedback.setBounds(20, 553, 537, 100);
         contentPane.add(textAreaFeedback);
-
-        // Submit Button
+        
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        btnSubmit.setBounds(180, 700, 150, 30);
+        btnSubmit.setBounds(78, 681, 150, 30);
         contentPane.add(btnSubmit);
-
+        
+        JButton btnReset = new JButton("RESET");
+        btnReset.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnReset.setBounds(306, 681, 150, 30);
+        contentPane.add(btnReset);
+        
         btnSubmit.addActionListener(e -> {
             String firstName = textFieldFirstName.getText();
             String age = textFieldAge.getText();
@@ -240,9 +253,9 @@ public class FormGUI extends JFrame {
             String password = new String(passwordField.getPassword());
             String dob = textFieldDOB.getText();
             String time = textFieldTime.getText();
-            String url = textFieldURL.getText();
+            String url = textFieldUrl.getText();
             String skill = (String) comboBoxSkill.getSelectedItem();
-            String gender = rdbtnMale.isSelected() ? "Male" : rdbtnFemale.isSelected() ? "Female" : "Other";
+            String gender = Male.isSelected() ? "Male" : Female.isSelected() ? "Female" : "Other";
             int volume = volumeSlider.getValue();
             String file = lblSelectedFile.getText();
             String city = (String) comboBoxCity.getSelectedItem();
@@ -255,5 +268,6 @@ public class FormGUI extends JFrame {
                 JOptionPane.showMessageDialog(null, "Submitted Successfully!");
             }
         });
-    }
+        
+	}
 }
