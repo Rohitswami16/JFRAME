@@ -261,7 +261,7 @@ public class RegistrationForm extends JFrame {
             String city = (String) comboBoxCity.getSelectedItem();
             String feedback = textAreaFeedback.getText();
 
-            // Basic validation
+           
             if (firstName.isEmpty() || age.isEmpty() || email.isEmpty() || password.isEmpty() || dob.isEmpty() || city.equals("Select City")) {
                 JOptionPane.showMessageDialog(null, "Please fill in all required fields.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
